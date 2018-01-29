@@ -24,8 +24,9 @@ It should contain:
 The date is recorded in UTC, as a series of EPOCH time slots
 */
 type CalendarEntry struct {
-	ID string
-
+	ID      string
+	UserID  string
+	LayerID string // ChainLayer ID
 	/*
 		PlainText to describe the calendar in human readable way
 
