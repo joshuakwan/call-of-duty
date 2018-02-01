@@ -12,6 +12,6 @@ type Service struct {
 }
 
 // CreateService creates a new service
-func CreateService(name, email string) *Service {
+func CreateService(name string) *Service {
 	return &Service{ID: utils.GenerateUUID(), Name: name}
 }

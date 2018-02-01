@@ -16,6 +16,8 @@ var testInputUsers = []struct {
 	{"jojo", "jojo@example.com"},
 }
 
+var testInputServices = []string{"Service A", "Service B", "Service C", "Service D"}
+
 func createTestUsers() []*User {
 	var users []*User
 	for _, input := range testInputUsers {
@@ -26,7 +28,11 @@ func createTestUsers() []*User {
 }
 
 func createTestServices() []*Service {
-	return nil
+	var services []*Service
+	for _, input := range testInputServices {
+		services = append(services, CreateService(input))
+	}
+	return services
 }
 
 func createTestTeam() *Team {
