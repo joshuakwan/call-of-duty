@@ -1,6 +1,6 @@
 package models
 
-import "../utils"
+import "github.com/joshuakwan/call-of-duty/utils"
 
 // Service defines a service
 type Service struct {

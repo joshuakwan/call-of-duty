@@ -1,8 +1,4 @@
-package test
-
-import (
-	"../models"
-)
+package models
 
 var testInputUsers = []struct {
 	name  string
@@ -20,21 +16,21 @@ var testInputUsers = []struct {
 	{"jojo", "jojo@example.com"},
 }
 
-func createTestUsers() []*models.User {
-	var users []*models.User
+func createTestUsers() []*User {
+	var users []*User
 	for _, input := range testInputUsers {
-		users = append(users, models.CreateUser(input.name, input.email))
+		users = append(users, CreateUser(input.name, input.email))
 	}
 
 	return users
 }
 
-func createTestServices() []*models.Service {
+func createTestServices() []*Service {
 	return nil
 }
 
-func createTestTeam() *models.Team {
+func createTestTeam() *Team {
 	teamName := "Team A"
 	teamDescription := "A Testing Team"
-	return &models.Team{Name: teamName, Description: teamDescription}
+	return &Team{Name: teamName, Description: teamDescription}
 }

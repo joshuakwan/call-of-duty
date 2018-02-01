@@ -1,11 +1,10 @@
-package test
+package models
 
 import (
 	"testing"
 	"time"
 
-	"../models"
-	"../utils"
+	"github.com/joshuakwan/call-of-duty/utils"
 )
 
 func TestCreateCalendarEntry(t *testing.T) {
@@ -13,7 +12,7 @@ func TestCreateCalendarEntry(t *testing.T) {
 	dateDuration := 40
 	dateEnd := dateStart.AddDate(0, 0, dateDuration)
 	timeSlot := "08:00-23:00"
-	newCalEntry := models.CreateCalendarEntry(dateStart, dateEnd, "", timeSlot)
+	newCalEntry := CreateCalendarEntry(dateStart, dateEnd, "", timeSlot)
 	timeSlots := newCalEntry.TimeSlots
 
 	utils.AssertEqual(t, len(timeSlots), dateDuration+1, "Incorrect time slot length")

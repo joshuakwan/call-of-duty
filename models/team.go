@@ -1,6 +1,6 @@
 package models
 
-import "../utils"
+import "github.com/joshuakwan/call-of-duty/utils"
 
 // Team defines a team of multiple users
 type Team struct {

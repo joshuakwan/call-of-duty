@@ -1,9 +1,9 @@
-package test
+package models
 
 import (
 	"testing"
 
-	"../utils"
+	"github.com/joshuakwan/call-of-duty/utils"
 )
 
 func TestAddTeamUsers(t *testing.T) {

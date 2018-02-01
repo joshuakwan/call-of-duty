@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"../utils"
+	"github.com/joshuakwan/call-of-duty/utils"
 )
 
 // UserPreference defines the preference of a user

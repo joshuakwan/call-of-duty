@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"../utils"
+	"github.com/joshuakwan/call-of-duty/utils"
 )
 
 // TimeSlot defines a slot of start_time ~ end_time

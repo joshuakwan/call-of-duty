@@ -6,4 +6,5 @@ go:
 install: true
 
 script:
-  - go test ./test
+  - go test github.com/joshuakwan/call-of-duty/utils
+  - go test github.com/joshuakwan/call-of-duty/models
