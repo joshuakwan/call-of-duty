@@ -18,6 +18,7 @@ func CreateTeam(name, description string) *Team {
 
 // AddNewService adds a service to the team
 func (team *Team) AddNewService(service *Service) {
+	service.TeamID = team.ID
 	team.ServiceIDs = append(team.ServiceIDs, service.ID)
 }
 
@@ -25,6 +26,7 @@ func (team *Team) AddNewService(service *Service) {
 func (team *Team) RemoveService(service *Service) string {
 	for i, serviceID := range team.ServiceIDs {
 		if serviceID == service.ID {
+			service.TeamID = ""
 			team.ServiceIDs = utils.RemoveElement(team.ServiceIDs, i)
 		}
 	}
@@ -34,13 +36,16 @@ func (team *Team) RemoveService(service *Service) string {
 // AddNewUser adds a user to the team
 func (team *Team) AddNewUser(user *User) {
 	team.UserIDs = append(team.UserIDs, user.ID)
+	user.TeamIDs = append(user.TeamIDs, team.ID)
 }
 
 // RemoveUser removes a user from the team
 func (team *Team) RemoveUser(user *User) string {
 	for i, userID := range team.UserIDs {
 		if userID == user.ID {
+			user.removeFromTeam(team.ID)
 			team.UserIDs = utils.RemoveElement(team.UserIDs, i)
+			break
 		}
 	}
 	return user.ID

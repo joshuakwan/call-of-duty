@@ -18,7 +18,7 @@ type User struct {
 	ID                 string   `json:"id"`
 	Name               string   `json:"name"`
 	Email              string   `json:"email"`
-	TeamIDs            string   `json:"team_ids"`
+	TeamIDs            []string `json:"team_ids"`
 	EscalationChainIDs []string `json:"escalation_chain_ids"`
 }
 
@@ -27,6 +27,18 @@ func CreateUser(name, email string) *User {
 	return &User{ID: utils.GenerateUUID(), Name: name, Email: email}
 }
 
-func (u *User) String() string {
-	return fmt.Sprintf("UUID: %s, User Name: %s, Email: %s", u.ID, u.Name, u.Email)
+// RemoveFromTeam removes a Team from a User
+func (user *User) removeFromTeam(teamID string) string {
+	for i, id := range user.TeamIDs {
+		if teamID == id {
+			user.TeamIDs = utils.RemoveElement(user.TeamIDs, i)
+			break
+		}
+	}
+	return teamID
+}
+
+// String returns the literal form of a User
+func (user *User) String() string {
+	return fmt.Sprintf("UUID: %s, User Name: %s, Email: %s", user.ID, user.Name, user.Email)
 }

@@ -1,5 +1,7 @@
 package models
 
+import "../utils"
+
 // Service defines a service
 type Service struct {
 	ID                 string   `json:"id"`
@@ -7,4 +9,9 @@ type Service struct {
 	TeamID             string   `json:"team_id"`
 	UserIDs            []string `json:"user_ids"`
 	EscalationChainIDs string   `json:"escalation_chain_ids"`
+}
+
+// CreateService creates a new service
+func CreateService(name, email string) *Service {
+	return &Service{ID: utils.GenerateUUID(), Name: name}
 }
