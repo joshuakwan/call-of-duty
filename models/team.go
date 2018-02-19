@@ -43,7 +43,7 @@ func (team *Team) AddNewUser(user *User) {
 func (team *Team) RemoveUser(user *User) string {
 	for i, userID := range team.UserIDs {
 		if userID == user.ID {
-			user.removeFromTeam(team.ID)
+			user.RemoveFromTeam(team.ID)
 			team.UserIDs = utils.RemoveElement(team.UserIDs, i)
 			break
 		}

@@ -1,5 +1,9 @@
 package models
 
+import (
+	"fmt"
+)
+
 var testInputUsers = []struct {
 	name  string
 	email string
@@ -21,7 +25,12 @@ var testInputServices = []string{"Service A", "Service B", "Service C", "Service
 func createTestUsers() []*User {
 	var users []*User
 	for _, input := range testInputUsers {
-		users = append(users, CreateUser(input.name, input.email))
+		newUser, err := CreateUser(input.name, input.email)
+		if err == nil {
+			users = append(users, newUser)
+		} else {
+			fmt.Println(err)
+		}
 	}
 
 	return users
