@@ -3,6 +3,10 @@ language: go
 go:
   - 1.x
 
+before_install:
+  - go get -u gopkg.in/mgo.v2
+  - go get -u github.com/astaxie/beego
+
 install: true
 
 script:
