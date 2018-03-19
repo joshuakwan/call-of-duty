@@ -22,6 +22,6 @@ func TestCreateUser(t *testing.T) {
 	utils.AssertNotEqual(t, dup, true, "UUID not unique")
 }
 
-func TestDeleteUsers(t *testing.T) {
+// func TestDeleteUsers(t *testing.T) {
 
-}
+// }
